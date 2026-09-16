@@ -23,14 +23,29 @@ public static class EditorBuild
            BuildOptions.None);
     }
 
+    [MenuItem("Build/WebGL")]
+    public static void BuildWebGL()
+    {
+        BuildPipeline.BuildPlayer(
+       EditorBuildSettings.scenes,
+       "Builds/WebGL",
+       BuildTarget.WebGL,
+       BuildOptions.None);
+    }
+
     [MenuItem("Build/All")]
     public static void BuildAll()
     {
         Debug.Log("-----Starting Build All");
 
         BuildPC();
-        BuildAndroid();
+        Debug.Log("-----Finished Build PC");
 
-        Debug.Log("-----Finished Build All");
+        BuildAndroid();
+        Debug.Log("-----Finished Build Android");
+
+        BuildWebGL();
+        Debug.Log("-----Finished Build WebGL");
+        Debug.Log("-----Finished Build All-----");
     }
 }
